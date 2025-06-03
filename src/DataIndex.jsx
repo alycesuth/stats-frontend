@@ -31,25 +31,30 @@ export function DataIndex() {
         </div>
       </div>
       <div className="flex flex-col md:flex-row gap-10 justify-center">
-        <div className="bg-[#1c1f2e] border border-gray-700 rounded-2xl p-8 w-full max-w-md">
+        <div className="bg-[#1c1f2e] border border-gray-700 rounded-2xl p-8 w-full max-w-md h-[600px] flex flex-col">
           <h2 className="text-3xl font-bold mb-6 text-red-300">Top Songs</h2>
-          <ul className="text-left space-y-3 text-lg">
+          <ul className="text-left text-lg overflow-y-scroll space-y-4 pr-2 scrollbar-thin scrollbar-track-[#1c1f2e] scrollbar-thumb-gray-600">
             {topTracks.map((track, index) => (
-              <li key={track.id || index} className="text-gray-300 pl-10 relative">
+              <li key={track.id || index} className="pl-10 relative text-gray-300">
                 <span className="absolute left-0 w-8 text-right font-semibold text-white">{index + 1}.</span>
-                <span className="font-semibold text-white">{track.name}</span> — {track.artists?.[0]?.name}
+                <div className="leading-tight">
+                  <div className="font-semibold text-white truncate max-w-[16rem]">{track.name}</div>
+                  <div className="text-sm text-gray-400 truncate max-w-[16rem]"> {track.artists?.[0]?.name}</div>
+                </div>
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="bg-[#1c1f2e] border border-gray-700 rounded-2xl p-8 w-full max-w-md">
+        <div className="bg-[#1c1f2e] border border-gray-700 rounded-2xl p-8 w-full max-w-md h-[600px] flex flex-col">
           <h2 className="text-3xl font-bold mb-6 text-red-300">Top Artists</h2>
-          <ul className="text-left space-y-3 text-lg">
+          <ul className="text-left text-lg overflow-y-scroll space-y-4 pr-2 scrollbar-thin scrollbar-track-[#1c1f2e] scrollbar-thumb-gray-600">
             {topArtists.map((artist, index) => (
-              <li key={index} className="text-gray-300 pl-10 relative">
+              <li key={index} className="pl-10 relative text-gray-300">
                 <span className="absolute left-0 w-8 text-right font-semibold text-white">{index + 1}.</span>
-                <span className="font-semibold text-white">{artist.name}</span>
+                <div className="leading-tight">
+                  <div className="font-semibold text-white truncate max-w-[16rem]">{artist.name}</div>
+                </div>
               </li>
             ))}
           </ul>
