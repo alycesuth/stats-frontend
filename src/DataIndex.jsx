@@ -35,11 +35,9 @@ export function DataIndex() {
           <h2 className="text-3xl font-bold mb-6 text-red-300">Top Songs</h2>
           <ul className="text-left space-y-3 text-lg">
             {topTracks.map((track, index) => (
-              <li key={track.id || index} className="text-gray-300">
-                <span className="font-semibold text-white">
-                  {index + 1}. {track.name}
-                </span>{" "}
-                — {track.artists?.[0]?.name}
+              <li key={track.id || index} className="text-gray-300 pl-10 relative">
+                <span className="absolute left-0 w-8 text-right font-semibold text-white">{index + 1}.</span>
+                <span className="font-semibold text-white">{track.name}</span> — {track.artists?.[0]?.name}
               </li>
             ))}
           </ul>
@@ -49,10 +47,9 @@ export function DataIndex() {
           <h2 className="text-3xl font-bold mb-6 text-red-300">Top Artists</h2>
           <ul className="text-left space-y-3 text-lg">
             {topArtists.map((artist, index) => (
-              <li key={index} className="text-gray-300">
-                <span className="font-semibold text-white">
-                  {index + 1}. {artist.name}
-                </span>
+              <li key={index} className="text-gray-300 pl-10 relative">
+                <span className="absolute left-0 w-8 text-right font-semibold text-white">{index + 1}.</span>
+                <span className="font-semibold text-white">{artist.name}</span>
               </li>
             ))}
           </ul>
